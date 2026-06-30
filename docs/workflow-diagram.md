@@ -1,3 +1,5 @@
+```mermaid
+
 flowchart TD
     %% --- Horizontal Legend Banner ---
     subgraph Legend ["Diagram Legend"]
@@ -5,10 +7,8 @@ flowchart TD
         L1[Clinical Flow Step] ~~~ L2{Decision Point} ~~~ L3[Outcome / Disposition] ~~~ L4[(Database)] ~~~ L5["AI Plug-in Node"]
     end
 
-    %% Force layout positioning
     Legend ~~~ A
 
-    %% --- Main clinical flow ---
     A[Step 1: Patient Arrival<br/>ambulance / walk-in / taxi]
     B[Step 2: Registration<br/>Demographics, consent, arrival mode<br/>Handoff: desk → nursing]
     C[Step 3: Vitals Capture<br/>Temp, HR, RR, BP, SpO2,<br/>glucose, pain score]
