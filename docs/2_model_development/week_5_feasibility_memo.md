@@ -14,7 +14,19 @@
 
 ## 2 · Dataset Summary
 
-The dataset covers 55,121 emergency department encounters, each described by 225 features: 25 structured fields (demographics, arrival details, triage vital signs) and 200 chief-complaint flags. Patients range from 18 to 107 years old (mean 55.3 years); the sample includes no paediatric encounters. The sample is 57.6% female, 53.4% White/Caucasian, 29.0% Black/African American, and predominantly Non-Hispanic (81.9%). Insurance status is dominated by Medicaid and Medicare (70.8% combined). Triage acuity is imbalanced, as expected for an ED population: the great majority of encounters fall in the mid-acuity range (ESI 2–3), with very few at the most urgent level (ESI 1, **0.1%**) or least urgent level (ESI 5, **2.2%**). Temperature is recorded in Fahrenheit throughout.
+The dataset covers 55,121 emergency department encounters, each described by 225 features: 25 structured fields (demographics, arrival details, triage vital signs) and 200 chief-complaint flags. Patients range from 18 to 107 years old (mean 55.3 years); the sample includes no paediatric encounters. The sample is 57.6% female, 53.4% White/Caucasian, 29.0% Black/African American, and predominantly Non-Hispanic (81.9%). Insurance status is dominated by Medicaid and Medicare (70.8% combined). Triage acuity is imbalanced, as expected for an ED population: the great majority of encounters fall in the mid-acuity range (ESI 2–3), with very few at the most urgent level (ESI 1, 0.1%) or least urgent level (ESI 5, 2.2%). Temperature is recorded in Fahrenheit throughout.
+
+<img width="1760" height="770" alt="image" src="https://github.com/user-attachments/assets/8e7e3b4c-dacb-46b7-806f-fa8ebdcfbeca" />
+
+*Figure 1 - Vital Sign Distributions and ESI Class Balance*
+
+<img width="1089" height="390" alt="image" src="https://github.com/user-attachments/assets/947edfda-4d15-40cc-b8aa-4fad7c94f0e9" />
+ 
+*Figure 1 - Distribution of Triage Acuity (ESI) and Patient Age*
+
+<img width="1430" height="440" alt="image" src="https://github.com/user-attachments/assets/ac087fe1-a390-4c4b-a28e-c503e46958e4" />
+
+*Figure 2 - Sample Composition by Race and Ethnicity*
 
 ---
 
@@ -23,6 +35,10 @@ The dataset covers 55,121 emergency department encounters, each described by 225
 **1. Physiologically implausible values in a small number of vital-sign readings.** Four respiratory-rate readings and 25 glucose readings fell outside physiologically plausible bounds (0.007% and 0.045% of encounters respectively); no implausible values were found in heart rate, blood pressure, oxygen saturation, or temperature. *Mitigation:* implausible values were treated as missing, not corrected or capped, and imputed with the column median — a conservative, documented choice appropriate for a small number of affected records.
 
 **2. A large proportion of near-constant chief-complaint flags.** 149 of the 200 chief-complaint columns (74.5%) occur in fewer than 0.5% of encounters, meaning most complaint flags individually carry little statistical signal. *Mitigation:* this is noted explicitly for Week 6, where a minimum-prevalence filter or dimensionality-reduction step should be considered before modelling.
+
+<img width="990" height="660" alt="image" src="https://github.com/user-attachments/assets/a446982e-3058-461b-a8b0-ab7d7f754623" />
+
+*Figure 3 - 15 Most Frequent Presenting Complaints*
 
 **3. Representativeness.** This is a single-country, US academic-hospital sample; case-mix, demographics, and insurance structures may not transfer to a Caribbean ED. *Mitigation:* named as a caveat below; external validation against local data is recommended before any deployment decision.
 
@@ -46,9 +62,13 @@ The dataset covers 55,121 emergency department encounters, each described by 225
 * The sample's demographic and insurance-payer composition reflects a single US healthcare system; external validity for a Caribbean ED population and payer structure is untested and should be treated as the primary limitation before any deployment decision.
 * [FILL IN once confirmed] The dataset's `dep_name` field records three distinct values, which may indicate multiple sites or departments rather than a single site as informally assumed — pending confirmation, this may need to be incorporated into the representativeness caveat.
 
-### Supporting Visual Evidence
+<img width="1540" height="880" alt="image" src="https://github.com/user-attachments/assets/07ac77dd-77b7-4633-899d-1de0d8948b71" />
 
+*Figure 4 - Vital Signs by ESI Level Box-plots*
 
+<img width="880" height="770" alt="image" src="https://github.com/user-attachments/assets/6ec900fc-c6bb-48a2-83c2-b829033ae7a1" />
+
+*Figure 5 - Association Between Vital Signs and Triage Acuity*
 
 ---
 
@@ -80,6 +100,10 @@ Ranked by absolute correlation with ESI, then screened for clinical plausibility
 
 ## Cleaning Log
 
+<img width="2750" height="1100" alt="image" src="https://github.com/user-attachments/assets/743815aa-fb37-4470-a2e0-09d528db16e4" />
+
+*Figure 6 - Missing Data by Field*
+
 | Column(s) | Rule applied | Rationale | Rows/values affected |
 | --- | --- | --- | --- |
 | `esi` | Drop rows with no label | Cannot learn an unrecorded decision | 0 rows |
@@ -94,3 +118,7 @@ Ranked by absolute correlation with ESI, then screened for clinical plausibility
 ## Methodology
 
 See `notebooks/week5_exploration.ipynb` for the full profiling, outlier-detection, cleaning, and correlation pipeline.
+
+## Key Figures
+
+Figures supporting this memo are in `/docs/figs/`: `01_missingness.png`, `02_esi_age.png`, `03_demographics.png`, `04_chief_complaints.png`, `05_vitals_by_esi.png`, `06_correlation.png`.
