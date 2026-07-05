@@ -60,7 +60,6 @@ The dataset covers 55,121 emergency department encounters, each described by 225
 * The majority of chief-complaint flags are near-constant and individually low-signal; feature selection is needed before Week 6 modelling.
 * Correlation values reported here are associations only, not evidence of causation or future model performance, and many chief-complaint flags are low-variance, making their correlations unstable.
 * The sample's demographic and insurance-payer composition reflects a single US healthcare system; external validity for a Caribbean ED population and payer structure is untested and should be treated as the primary limitation before any deployment decision.
-* [FILL IN once confirmed] The dataset's `dep_name` field records three distinct values, which may indicate multiple sites or departments rather than a single site as informally assumed — pending confirmation, this may need to be incorporated into the representativeness caveat.
 
 <img width="1540" height="880" alt="image" src="https://github.com/user-attachments/assets/07ac77dd-77b7-4633-899d-1de0d8948b71" />
 
@@ -96,7 +95,6 @@ Ranked by absolute correlation with ESI, then screened for clinical plausibility
 ## Assumptions
 
 * Implausible vital-sign values reflect data-entry or sensor error rather than genuine extreme physiology, given their rarity (well under 0.1% of encounters).
-* [Pending your confirmation] `dep_name`'s three values represent [FILL IN].
 
 ## Cleaning Log
 
