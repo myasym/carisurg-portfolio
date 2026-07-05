@@ -1,8 +1,8 @@
-# Week 5 Feasibility Memo — AI-Assisted ESI Triage Decision Support
+# Week 5 Feasibility Memo - AI-Assisted ESI Triage Decision Support
 
 **Prepared for:** Mercer General ED Board
-**Prepared by:** Mya [Surname] · CariSurg MedTech Pathways 2026
-**Date:** [FILL IN — submission date]
+**Prepared by:** Mya Symister · CariSurg MedTech Pathways 2026
+**Date:** 4 July 2026
 
 ---
 
@@ -14,7 +14,7 @@
 
 ## 2 · Dataset Summary
 
-The dataset covers 55,121 emergency department encounters, each described by 225 features: 25 structured fields (demographics, arrival details, triage vital signs) and 200 chief-complaint flags. Patients range from 18 to 107 years old (mean 55.3 years); the sample includes no paediatric encounters. The sample is 57.6% female, 53.4% White/Caucasian, 29.0% Black/African American, and predominantly Non-Hispanic (81.9%). Insurance status is dominated by Medicaid and Medicare (70.8% combined). Triage acuity is imbalanced, as expected for an ED population: the great majority of encounters fall in the mid-acuity range (ESI 2–3), with very few at the most urgent level (ESI 1, 0.1%) or least urgent level (ESI 5, 2.2%). Temperature is recorded in Fahrenheit throughout.
+The dataset covers 55,121 emergency department encounters, each described by 225 features: 25 structured fields (demographics, arrival details, triage vital signs) and 200 chief-complaint flags. Patients range from 18 to 107 years old (mean 55.3 years); the sample includes no paediatric encounters. The sample is 57.6% female, 53.4% White/Caucasian, 29.0% Black/African American, and predominantly Non-Hispanic (81.9%). Insurance status is dominated by Medicaid and Medicare (70.8% combined). Triage acuity is imbalanced, as expected for an ED population: the great majority of encounters fall in the mid-acuity range (ESI 2–3), with very few at the most urgent level (ESI 1, **0.1%**) or least urgent level (ESI 5, **2.2%**). Temperature is recorded in Fahrenheit throughout.
 
 ---
 
@@ -40,13 +40,15 @@ The dataset covers 55,121 emergency department encounters, each described by 225
 
 ## 5 · Caveats
 
-- Temperature is recorded in Fahrenheit; any future work must not assume Celsius.
-- The majority of chief-complaint flags are near-constant and individually low-signal; feature selection is needed before Week 6 modelling.
-- Correlation values reported here are associations only, not evidence of causation or future model performance, and many chief-complaint flags are low-variance, making their correlations unstable.
-- The sample's demographic and insurance-payer composition reflects a single US healthcare system; external validity for a Caribbean ED population and payer structure is untested and should be treated as the primary limitation before any deployment decision.
-- [FILL IN once confirmed] The dataset's `dep_name` field records three distinct values, which may indicate multiple sites or departments rather than a single site as informally assumed — pending confirmation, this may need to be incorporated into the representativeness caveat.
+* Temperature is recorded in Fahrenheit; any future work must not assume Celsius.
+* The majority of chief-complaint flags are near-constant and individually low-signal; feature selection is needed before Week 6 modelling.
+* Correlation values reported here are associations only, not evidence of causation or future model performance, and many chief-complaint flags are low-variance, making their correlations unstable.
+* The sample's demographic and insurance-payer composition reflects a single US healthcare system; external validity for a Caribbean ED population and payer structure is untested and should be treated as the primary limitation before any deployment decision.
+* [FILL IN once confirmed] The dataset's `dep_name` field records three distinct values, which may indicate multiple sites or departments rather than a single site as informally assumed — pending confirmation, this may need to be incorporated into the representativeness caveat.
 
-*[Embed the vitals-by-ESI box-plot figure or the correlation heatmap here to support the findings above, per the rubric requirement.]*
+### Supporting Visual Evidence
+
+
 
 ---
 
@@ -55,7 +57,7 @@ The dataset covers 55,121 emergency department encounters, each described by 225
 Ranked by absolute correlation with ESI, then screened for clinical plausibility; leakage columns (`disposition`, `previousdispo`) were excluded by design. Presented as a hypothesis to test in Week 6, not proven importance.
 
 | Rank | Feature | Correlation with ESI | Clinical justification |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | 1 | Oxygen saturation (SpO2) | +0.178 | A triage nurse treats low SpO2 as a danger-zone vital; this is the strongest and most clinically central association in the data. |
 | 2 | Chest pain (chief complaint) | −0.164 | Classic high-acuity red flag for cardiac and pulmonary emergencies; the strongest complaint-level association found. |
 | 3 | Shortness of breath (chief complaint) | −0.150 | A core ESI-2 trigger reflecting respiratory distress. |
@@ -73,13 +75,13 @@ Ranked by absolute correlation with ESI, then screened for clinical plausibility
 
 ## Assumptions
 
-- Implausible vital-sign values reflect data-entry or sensor error rather than genuine extreme physiology, given their rarity (well under 0.1% of encounters).
-- [Pending your confirmation] `dep_name`'s three values represent [FILL IN].
+* Implausible vital-sign values reflect data-entry or sensor error rather than genuine extreme physiology, given their rarity (well under 0.1% of encounters).
+* [Pending your confirmation] `dep_name`'s three values represent [FILL IN].
 
 ## Cleaning Log
 
 | Column(s) | Rule applied | Rationale | Rows/values affected |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `esi` | Drop rows with no label | Cannot learn an unrecorded decision | 0 rows |
 | Vitals, `age` | Coerce to numeric | Defensive; reveal hidden dtype issues | 0 new NaNs introduced |
 | `triage_vital_rr` | Out-of-range → NaN, then median-fill | 4 values outside plausible bounds (4–60/min) | 4 values |
@@ -92,7 +94,3 @@ Ranked by absolute correlation with ESI, then screened for clinical plausibility
 ## Methodology
 
 See `notebooks/week5_exploration.ipynb` for the full profiling, outlier-detection, cleaning, and correlation pipeline.
-
-## Key Figures
-
-Figures supporting this memo are in `/docs/figs/`: `01_missingness.png`, `02_esi_age.png`, `03_demographics.png`, `04_chief_complaints.png`, `05_vitals_by_esi.png`, `06_correlation.png`.
