@@ -118,7 +118,3 @@ Ranked by absolute correlation with ESI, then screened for clinical plausibility
 ## Methodology
 
 See `notebooks/week5_exploration.ipynb` for the full profiling, outlier-detection, cleaning, and correlation pipeline.
-
-## Key Figures
-
-Figures supporting this memo are in `/docs/figs/`: `01_missingness.png`, `02_esi_age.png`, `03_demographics.png`, `04_chief_complaints.png`, `05_vitals_by_esi.png`, `06_correlation.png`.
