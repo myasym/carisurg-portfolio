@@ -8,7 +8,7 @@
 
 ## 1 · Verdict
 
-**Proceed to a baseline triage model caution. There should be room for iterative revision of the model in the future.**
+**Proceed to a baseline triage model caution. There should be room for iterative revisions of the model in the future.**
 
 ---
 
