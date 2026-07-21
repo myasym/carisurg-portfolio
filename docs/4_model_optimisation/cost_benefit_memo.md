@@ -57,15 +57,15 @@ Evaluating medical machine learning models means balancing clinical risk with re
 
 | Candidate Model | Accuracy | Precision (Macro) | Recall (Macro) | F1 Score (Macro) | Train Time (s) | Inference (ms/pred) | ESI 1 PR AUC | Explainable Under 1 Minute? |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| **Logistic Regression (tuned) ★** | **0.670** | **0.573** | **0.453** | **0.481** | **45.61** | **0.004** | **0.230** | **YES (Mathematical Weights)** |
-| **Decision Tree (tuned)** | 0.512 | 0.356 | 0.462 | 0.371 | 10.58 | 0.001 | 0.079 | **YES (Decision Pathways)** |
-| **Random Forest (fixed params)** | 0.608 | 0.452 | 0.519 | 0.475 | 285.61 | 0.053 | 0.104 | **NO (Tree Averaging)** |
-| **Gradient Boosting (f1_macro)** | 0.550 | 0.410 | 0.547 | 0.416 | 128.90 | 0.023 | 0.189 | **NO (Requires SHAP)** |
-| **Gradient Boosting (recall_macro)** | 0.550 | 0.410 | 0.547 | 0.416 | 128.48 | 0.020 | 0.189 | **NO (Requires SHAP)** |
-| **Gradient Boosting (esi1_pr_auc)** | 0.530 | 0.395 | 0.558 | 0.390 | 137.49 | 0.032 | 0.216 | **NO (Requires SHAP)** |
-| **XGBoost (f1_macro)** | 0.667 | 0.588 | 0.408 | 0.443 | 209.93 | 0.056 | 0.296 | **NO (Requires SHAP)** |
-| **XGBoost (recall_macro)** | 0.667 | 0.588 | 0.408 | 0.443 | 213.22 | 0.034 | 0.296 | **NO (Requires SHAP)** |
-| **XGBoost (esi1_pr_auc)** | 0.643 | 0.612 | 0.398 | 0.443 | 214.23 | 0.018 | 0.303 | **NO (Requires SHAP)** |
+| **Logistic Regression (tuned) ★** | **0.670** | **0.573** | **0.453** | **0.481** | **45.61** | **0.004** | **0.230** | **Yes, by looking at simple maths.** |
+| **Decision Tree (tuned)** | 0.512 | 0.356 | 0.462 | 0.371 | 10.58 | 0.001 | 0.079 | **Yes, by following simple yes or no steps.** |
+| **Random Forest (fixed params)** | 0.608 | 0.452 | 0.519 | 0.475 | 285.61 | 0.053 | 0.104 | **No, it averages hundreds of rules together.** |
+| **Gradient Boosting (f1_macro)** | 0.550 | 0.410 | 0.547 | 0.416 | 128.90 | 0.023 | 0.189 | **No, it needs extra outside software.** |
+| **Gradient Boosting (recall_macro)** | 0.550 | 0.410 | 0.547 | 0.416 | 128.48 | 0.020 | 0.189 | **No, it needs extra outside software.** |
+| **Gradient Boosting (esi1_pr_auc)** | 0.530 | 0.395 | 0.558 | 0.390 | 137.49 | 0.032 | 0.216 | **No, it needs extra outside software.** |
+| **XGBoost (f1_macro)** | 0.667 | 0.588 | 0.408 | 0.443 | 209.93 | 0.056 | 0.296 | **No, it needs extra outside software.** |
+| **XGBoost (recall_macro)** | 0.667 | 0.588 | 0.408 | 0.443 | 213.22 | 0.034 | 0.296 | **No, it needs extra outside software.** |
+| **XGBoost (esi1_pr_auc)** | 0.643 | 0.612 | 0.398 | 0.443 | 214.23 | 0.018 | 0.303 | **No, it needs extra outside software.** |
 
 ---
 
@@ -87,12 +87,12 @@ From an IT view, Logistic Regression is very light. It makes a prediction in jus
 
 ## 5. Arguments Against the Recommended Choice
 
-1. Lower High Acuity Sensitivity (ESI 1 Case Misses)
+### 1. Lower High Acuity Sensitivity (ESI 1 Case Misses)
 The main medical problem with Logistic Regression is that it misses the most urgent patients. Out of 16 true ESI 1 patients in the test data, the model only found 3. It incorrectly labelled 13 critical cases as less urgent. Figure 1 visually highlights this weakness by comparing the missed ESI 1 cases between our recommended model and the alternatives. In a busy emergency department, missing an ESI 1 patient can be fatal.
 
 <img width="1404" height="1339" alt="image" src="https://github.com/user-attachments/assets/6cdfeaac-e2b7-4be6-8f75-bca2a9b969f9" />
 
-Figure 1 - Confusion matrices highlighting the true positive and false negative rates specifically for ESI 1 cases across the Logistic Regression and Gradient Boosting models.
+Figure 1 - Confusion matrices highlighting the true positive and false negative rates specifically for ESI 1 cases across all evaluated models.
 
 ### 2. Inability to Learn Complex Medical Interactions
 
