@@ -41,19 +41,19 @@ data:
 # fastest inference (0.004ms/pred). Trade-off accepted: weaker ESI-1 recall
 # (3/16 caught) vs. XGBoost's PR-AUC edge — mitigated operationally by
 # treating the model as a second opinion, never an override.
+# Tuned via RandomizedSearchCV over C in [0.01, 0.1, 1, 10], scoring f1_macro,
+# cv=3 — winning value confirmed as C=0.1 (see logreg_search.best_params_).
 final_model: logistic_regression
+
 
 models:
   logistic_regression:
+    C: 0.1                    # confirmed via logreg_search.best_params_
     max_iter: 1000
     random_state: 42
-    # ASSUMPTION / UNKNOWN: the memo reports a "tuned" LR (train time 45.61s
-    # vs. 14.36s baseline; precision 0.573 vs 0.571) but does not state which
-    # hyperparameter(s) were searched (e.g. C, penalty, solver). Baseline
-    # params are pinned here as a placeholder pending the actual tuned
-    # values from the search object — do not treat this as final until
-    # updated.
   decision_tree:
+    max_depth: null           # confirmed via tree_search.best_params_
+    min_samples_leaf: 8       # confirmed via tree_search.best_params_
     random_state: 42
     class_weight: balanced
   random_forest:
@@ -64,8 +64,13 @@ models:
     class_weight: balanced
     random_state: 42
   gradient_boosting:
+    # Pinned to the f1_macro-tuned variant (the objective used throughout
+    # the rest of the module). Two other tuned variants exist and are
+    # recorded in docs/model-selection.md:
+    #   recall_macro: max_iter=150, max_depth=6, learning_rate=0.1 (identical to this one)
+    #   esi1_pr_auc:  max_iter=150, max_depth=4, learning_rate=0.05
+    max_iter: 150
     max_depth: 6
     learning_rate: 0.1
-    max_iter: 300
     class_weight: balanced
     random_state: 42
