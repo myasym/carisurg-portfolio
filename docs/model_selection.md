@@ -1,4 +1,4 @@
-# Model Selection — Audit Trail
+# Model Selection - Audit Trail
 
 Every model trained across Weeks 6–7, evaluated on the identical held-out
 test set (N = 11,025, `random_state=42`, stratified 80/20 split). Full
