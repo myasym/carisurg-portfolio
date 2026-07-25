@@ -139,7 +139,7 @@ PYTHONPATH=. pytest tests/ -v
 ```
 carisurg-portfolio/
 ├── config.yaml
-├── HANDOVER.md
+├── LICENSE
 ├── README.md
 ├── requirements.txt
 ├── scripts/
@@ -164,6 +164,7 @@ carisurg-portfolio/
     ├── 3_baseline_model/
     ├── 4_model_optimisation/
     ├── decisions/
+    ├── HANDOVER.md
     └── model-selection.md
 ```
 
