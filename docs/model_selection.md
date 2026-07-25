@@ -3,7 +3,7 @@
 Every model trained across Weeks 6–7, evaluated on the identical held-out
 test set (N = 11,025, `random_state=42`, stratified 80/20 split). Full
 reasoning behind the pinned choice lives in the
-[Week 7 Cost-Benefit Memo](../4_model_optimisation/cost_benefit_memo.md) — this
+[Week 7 Cost-Benefit Memo](docs/4_model_optimisation/cost_benefit_memo.md) — this
 table is the "which version gave us what" record Martina Griffith asked for.
 
 ★ = pinned final model (config.yaml → `final_model: logistic_regression`)
