@@ -1,117 +1,203 @@
 # CariSurg Portfolio
 
-## Headline
+## Overview
 
-Clinical triage data cleaning and feasibility assessment for emergency decision-support modelling.
+This repository documents my work throughout the **CariSurg MedTech Pathways Programme**, following the development of an AI-assisted Emergency Severity Index (ESI) prediction model for emergency department triage.
 
-## Purpose
+The project progresses from foundational clinical data cleaning and exploratory analysis through feasibility assessment, baseline model development, and model optimisation. As the programme continues, this repository will be updated with additional modelling, evaluation, and deployment work.
 
-This repository demonstrates how emergency triage data can be cleaned, analysed, and communicated in a clinically interpretable way, building toward an AI-assisted Emergency Severity Index (ESI) triage model.
+**Current project handover (implementation notes, data governance, known limitations, and outstanding work): see [`HANDOVER.md`](docs/HANDOVER.md).**
+
+**Complete audit trail of model development and selection: see [`docs/model-selection.md`](docs/model-selection.md).**
+
+---
+
+## Repository Progress
+
+The repository is organised to reflect the progression of the CariSurg programme.
+
+### Orientation
+
+Foundational exercises introducing clinical datasets, data quality, and exploratory analysis.
+
+- `docs/0_orientation/`
+- `notebooks/0_orientation/`
+
+### Research
+
+Background research, project planning, and workflow design.
+
+- `docs/1_research/`
+- `notebooks/1_research/`
+
+### Model Development
+
+Exploratory data analysis and feasibility assessment of the emergency department dataset.
+
+- `docs/2_model_development/`
+- `notebooks/2_model_development/`
+
+### Baseline Model
+
+Development and evaluation of baseline machine learning models.
+
+- `docs/3_baseline_model/`
+- `notebooks/3_baseline_model/`
+
+### Model Optimisation
+
+Benchmarking, optimisation, model comparison, and clinical evaluation.
+
+- `docs/4_model_optimisation/`
+- `notebooks/4_model_optimisation/`
+
+---
+
+## Current Project Status
+
+At the current stage of the programme, the repository includes:
+
+- Clinical data cleaning pipelines
+- Exploratory data analysis
+- Feature engineering
+- Baseline model development
+- Model benchmarking and optimisation
+- A reproducible training pipeline
+- Automated pipeline testing
+- Clinical documentation and decision records
+
+The project is still in active development and will continue to evolve over the remaining weeks of the programme.
+
+---
+
+## Requirements
+
+- Python 3.10+
+- Git
+- pip
+
+---
 
 ## Installation
-
-### Prerequisites
-
-Ensure you have **Python 3.8+** installed.
-
-### Local Setup
 
 Clone the repository:
 
 ```bash
-git clone [https://github.com/myasymi/carisurg-portfolio.git](https://github.com/myasymi/carisurg-portfolio.git)
+git clone https://github.com/myasymi/carisurg-portfolio.git
 cd carisurg-portfolio
-
 ```
 
-Install required dependencies:
+Create and activate a virtual environment:
 
 ```bash
-pip install pandas numpy matplotlib seaborn scikit-learn missingno
-
+python3 -m venv .venv
+source .venv/bin/activate
 ```
 
-### Cloud Setup (Google Colab)
+Install the required dependencies:
 
-You can run the notebooks directly in Google Colab without local installation.
-
-* Upload the repository files to Google Drive, or
-* Open notebooks directly from GitHub in Colab
+```bash
+pip install -r requirements.txt
+```
 
 ---
 
-## Usage
+## Data
 
-### Repository Structure & Workflow
+The emergency department dataset is **not included** in this repository due to clinical governance requirements.
 
-This project is structured as a progressing clinical data pipeline, moving from foundational cleaning to predictive feasibility.
+Place the confidential patient CSV at the location specified in:
 
-#### Phase 1: Foundational Data Skills (Week 0)
+```
+config.yaml → data.raw_path
+```
 
-* **`day_1_gender_cleaning.ipynb`**
-Standardises inconsistent gender coding in triage data.
-* **`day_2_rr_data_cleaning.ipynb`**
-Cleans and validates respiratory rate values using clinical thresholds.
-* **`day_3_data_visualisation.ipynb`**
-Visualises physiological patterns for triage interpretation.
+The dataset is excluded from version control via `.gitignore` and must never be committed.
 
-#### Phase 2: Data Exploration & Feasibility (Week 5)
+Further guidance is available in `HANDOVER.md`.
 
-Assesses whether the Yale EMMLC triage extract (`yaleemmlc_admissionprediction_triage.csv`, 55,121 encounters, 225 features) is a viable basis for a baseline ESI triage model.
+---
 
-* **`notebooks/week5_exploration.ipynb`**
-Full profiling, outlier detection, distribution analysis, cleaning pipeline, and correlation analysis against the triage target (`esi`).
-* **`docs/week5-feasibility-final.md`**
-Feasibility memo for the ED Board, including the top-10 feature shortlist and cleaning log.
-* **`docs/figs/`**
-Data-quality dashboard figures (missingness, ESI/age distribution, demographics, chief complaints, vitals-by-ESI, correlation heatmap).
-* **`triage_cleaned_v1.csv`**
-Cleaned dataset generated from the pipeline.
+## Running the Pipeline
 
-**⚠️ Data Governance Note:** The raw and cleaned datasets are excluded from version control via `.gitignore` due to file size and the strict sensitivity of clinical data, even though this extract is de-identified.
+Train the current model using:
 
-### How to Run
+```bash
+python scripts/train.py --config config.yaml
+```
 
-To execute any notebook:
+Verify that the pipeline is functioning correctly:
 
-1. Place the required raw dataset in your working directory (if running locally) or mount it via Google Drive (if running on Colab).
-2. Open the notebook file.
-3. Click **Runtime → Run all** (Google Colab) or run all cells in order (Jupyter Notebook).
+```bash
+PYTHONPATH=. pytest tests/ -v
+```
+
+---
+
+## Repository Structure
+
+```
+carisurg-portfolio/
+├── config.yaml
+├── HANDOVER.md
+├── README.md
+├── requirements.txt
+├── scripts/
+│   └── train.py
+├── src/
+│   ├── data.py
+│   ├── features.py
+│   ├── model.py
+│   └── utils.py
+├── tests/
+│   └── test_pipeline.py
+├── notebooks/
+│   ├── 0_orientation/
+│   ├── 1_research/
+│   ├── 2_model_development/
+│   ├── 3_baseline_model/
+│   └── 4_model_optimisation/
+└── docs/
+    ├── 0_orientation/
+    ├── 1_research/
+    ├── 2_model_development/
+    ├── 3_baseline_model/
+    ├── 4_model_optimisation/
+    ├── decisions/
+    └── model-selection.md
+```
+
+---
+
+## Current Best Model
+
+At the current stage of the programme, **Logistic Regression** has been selected as the leading model following comparative evaluation of multiple baseline and optimised algorithms.
+
+The decision is based on predictive performance, interpretability, robustness, and suitability for clinical deployment.
+
+Supporting documentation:
+
+- `docs/model-selection.md`
+- `docs/decisions/week7_model_choice.md`
+- `docs/4_model_optimisation/cost_benefit_memo.md`
+- `HANDOVER.md`
+
+This recommendation may change as further modelling and evaluation are completed during the remaining weeks of the programme.
 
 ---
 
 ## Contributing
 
-Contributions should focus on clinical clarity, reproducible analysis, and readability for non-technical healthcare audiences.
+Contributions should prioritise:
 
-1. Fork the repository
-2. Create a feature branch:
-```bash
-git checkout -b feature/AmazingFeature
+- Clinical clarity
+- Reproducibility
+- Readability
+- Well-documented code
+- Transparent reporting of model decisions
 
-```
-
-
-3. Commit changes:
-```bash
-git commit -m "Add some AmazingFeature"
-
-```
-
-
-4. Push to the branch:
-```bash
-git push origin feature/AmazingFeature
-
-```
-
-
-5. Open a Pull Request
+---
 
 ## Licence
 
-This project is released under the MIT License. You are free to use, modify, and distribute this work for educational and non-commercial purposes, provided attribution is maintained.
-
-```
-
-```
+This project is released under the MIT License.
