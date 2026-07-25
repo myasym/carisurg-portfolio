@@ -6,9 +6,9 @@ This repository documents my work throughout the **CariSurg MedTech Pathways Pro
 
 The project progresses from foundational clinical data cleaning and exploratory analysis through feasibility assessment, baseline model development, and model optimisation. As the programme continues, this repository will be updated with additional modelling, evaluation, and deployment work.
 
-**Current project handover (implementation notes, data governance, known limitations, and outstanding work): see [`HANDOVER.md`](docs/HANDOVER.md).**
+**Current project handover (implementation notes, data governance, known limitations, and outstanding work): see [`docs/HANDOVER.md`](docs/HANDOVER.md).**
 
-**Complete audit trail of model development and selection: see [`docs/model-selection.md`](docs/model-selection.md).**
+**Complete audit trail of model development and selection: see [`docs/model_selection.md`](docs/model_selection.md).**
 
 ---
 
