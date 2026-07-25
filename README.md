@@ -165,7 +165,7 @@ carisurg-portfolio/
     ├── 4_model_optimisation/
     ├── decisions/
     ├── HANDOVER.md
-    └── model-selection.md
+    └── model_selection.md
 ```
 
 ---
@@ -178,10 +178,10 @@ The decision is based on predictive performance, interpretability, robustness, a
 
 Supporting documentation:
 
-- `docs/model-selection.md`
+- `docs/model_selection.md`
 - `docs/decisions/week7_model_choice.md`
 - `docs/4_model_optimisation/cost_benefit_memo.md`
-- `HANDOVER.md`
+- `docs/HANDOVER.md`
 
 This recommendation may change as further modelling and evaluation are completed during the remaining weeks of the programme.
 
