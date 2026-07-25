@@ -1,8 +1,4 @@
-# Handover — Mercer General ED Triage Classifier
-
-*Standard this page is held to: could a new hire, arriving Monday morning,
-clone this repo, read this page, and be running the model by end of day —
-without asking a single question?*
+# Handover - Mercer General ED Triage Classifier
 
 ## 1. Project summary
 
