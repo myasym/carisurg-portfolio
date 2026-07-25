@@ -21,7 +21,7 @@ and near-zero inference cost (0.004ms/prediction). Full reasoning, including
 the honest trade-off on ESI-1 recall (3/16 caught) against alternatives, is
 in [`reports/week7-cost-benefit-memo.md`](docs/4_model_optimisation/cost_benefit_memo.md)
 and the audit trail of every model tried is in
-[`docs/model-selection.md`](docs/model-selection.md).
+[`docs/model-selection.md`](docs/model_selection.md).
 
 ## 3. How to run
 
