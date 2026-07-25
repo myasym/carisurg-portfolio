@@ -1,4 +1,10 @@
-pandas==2.2.2
-numpy==1.26.4
-matplotlib==3.8.4
-jupyter==1.0.0
+# Pin these to your actual working environment's versions before submission —
+# run `pip freeze | grep -iE "pandas|numpy|scikit-learn|pyyaml|joblib|pytest"`
+# in the environment where your Week 7 notebook ran, and paste the exact
+# versions here. Placeholders below are NOT verified against your environment.
+pandas>=2.0
+numpy>=1.24
+scikit-learn>=1.3
+PyYAML>=6.0
+joblib>=1.3
+pytest>=7.2
