@@ -70,14 +70,6 @@ The project is still in active development and will continue to evolve over the 
 
 ---
 
-## Requirements
-
-- Python 3.10+
-- Git
-- pip
-
----
-
 ## Installation
 
 Clone the repository:
