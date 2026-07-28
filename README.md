@@ -280,9 +280,42 @@ The project is still in active development and will continue to evolve over the 
 ---
 
 ## Repository Structure
-
-*(Keep your existing repository tree unchanged.)*
-
+ 
+```
+carisurg-portfolio/
+├── config.yaml
+├── LICENSE
+├── README.md
+├── requirements.txt
+├── scripts/
+│   └── train.py
+├── src/
+│   ├── data.py
+│   ├── features.py
+│   ├── model.py
+│   └── utils.py
+├── tests/
+│   └── test_pipeline.py
+├── data/
+│   └── README.md    
+├── notebooks/
+│   ├── 0_orientation/
+│   ├── 1_research/
+│   ├── 2_model_development/
+│   ├── 3_baseline_model/
+│   └── 4_model_optimisation/
+└── docs/
+    ├── 0_orientation/
+    ├── 1_research/
+    ├── 2_model_development/
+    ├── 3_baseline_model/
+    ├── 4_model_optimisation/
+    ├── decisions/
+    ├── figs/
+    │   └── data-placement-diagram.svg
+    ├── HANDOVER.md
+    └── model_selection.md
+```
 ---
 
 ## Current Best Model
