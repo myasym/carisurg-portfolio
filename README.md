@@ -221,6 +221,18 @@ You should see `2 passed`. If either test fails, something in your setup or envi
 
 ---
 
+## Reproducibility
+
+To ensure consistent results across runs, the model training pipeline uses a fixed random seed.
+
+- **Random seed:** `42`
+
+The seed is configured in the training pipeline before model fitting. Using the same seed, dataset version, and environment should reproduce the reported model results.
+
+For full reproducibility, install the pinned dependencies listed in `requirements.txt` and follow the pipeline execution steps above.
+
+---
+
 ## Repository Progress
 
 The repository is organised to reflect the progression of the CariSurg programme.
