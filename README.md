@@ -103,6 +103,61 @@ This should complete by downloading pre-built packages, without any compiler out
 
 ---
 
+## Optional: Minimal Working Copy Using Sparse Checkout
+
+This repository contains the full development history of the project, including notebooks, research documentation, and model development records.
+
+If you only need the files required to run or review the current pipeline, Git's **sparse-checkout** feature can create a smaller local working copy containing only selected files.
+
+This is optional. A normal `git clone` will still provide the complete repository.
+
+### Create a minimal working copy
+
+Instead of the standard clone command, use:
+
+```bash
+git clone --filter=blob:none --no-checkout https://github.com/myasymi/carisurg-portfolio.git
+cd carisurg-portfolio
+git sparse-checkout init --cone
+git sparse-checkout set src scripts tests config.yaml requirements.txt README.md docs/HANDOVER.md
+git checkout main
+```
+
+This creates a local copy containing only the core pipeline files:
+
+```
+src/
+scripts/
+tests/
+config.yaml
+requirements.txt
+README.md
+docs/HANDOVER.md
+```
+
+The following remain in the repository but are not checked out locally:
+
+- `notebooks/`
+- weekly development documentation
+- historical analysis folders
+
+### How it works
+
+- `--filter=blob:none --no-checkout` creates a partial clone that downloads the repository structure while delaying file contents.
+- `git sparse-checkout init --cone` enables sparse-checkout mode using a simple folder-based approach.
+- `git sparse-checkout set ...` defines which files and folders should appear in the local working directory.
+- `git checkout main` downloads and checks out the selected files.
+
+### Important note
+
+Sparse-checkout does **not** remove files from the repository. The complete repository history, notebooks, and documentation remain available to anyone performing a normal clone.
+
+This means it does not affect project reproducibility, notebook preservation, or audit requirements. It simply allows a user to create a smaller local working copy if they only need the production pipeline files.
+
+For most users, the standard `git clone` approach is recommended because this repository is already small and the additional setup is unlikely to provide a significant speed improvement.
+
+---
+
 ## Data
 
 The emergency department dataset is **not included** in this repository and must never be committed to it. It contains confidential patient information and is excluded from version control via `.gitignore`.
