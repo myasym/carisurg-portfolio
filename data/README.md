@@ -1,24 +1,37 @@
 # Data Directory
 
-This directory intentionally contains no data files.
+This folder intentionally contains no data files.
 
-## Rationale
+## Why
 
-The dataset underpinning this project (`yaleemmlc_admissionprediction_triage.csv`,
-comprising 55,121 emergency department patient records) constitutes confidential
-clinical data and is therefore excluded from version control via `.gitignore`.
-It must never be committed to this repository, including in de-identified or
-reduced form.
+The dataset used in this project (`yaleemmlc_admissionprediction_triage.csv`,
+55,121 emergency department patient records) is confidential clinical data
+and is excluded from version control via `.gitignore`.
 
-## Data Provenance and Access
+## Obtaining the dataset
 
-The dataset resides in a governed storage location (Google Drive, access-
-controlled) and is not distributed alongside this repository. Access requires
-clearance through Mercer General IT Governance — contact Martina Griffith
-(Clinical IT Lead) to initiate this process.
+The dataset is not included in this repository. In the original project, it
+would be obtained through the appropriate data governance process before being
+placed in this directory.
 
-## Running the Pipeline
+For the purposes of this portfolio, the repository assumes you already have
+authorised access to the dataset.
 
-Prior to executing `scripts/train.py`, place the dataset at the path specified
-under `config.yaml → data.raw_path`. Full instructions are documented in
-`docs/HANDOVER.md`.
+## Placing the file
+
+Copy the dataset into this folder so the structure is:
+
+```
+carisurg-portfolio/
+├── data/
+│   └── yaleemmlc_admissionprediction_triage.csv
+```
+
+Alternatively, see the diagram below:
+
+<img width="654" height="343" alt="image" src="https://github.com/user-attachments/assets/7f3cefa2-5783-4edc-ae8e-58c71736f677" />
+
+## Running the pipeline
+
+Once the dataset is in place, follow the instructions in the main
+[`README.md`](../README.md).
