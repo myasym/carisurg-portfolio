@@ -1,5 +1,3 @@
-# Week 9 Final Deliverable
-
 # Deployment System Requirements Document
 
 **CariSurg MedTech Pathways — Mya Symister**
