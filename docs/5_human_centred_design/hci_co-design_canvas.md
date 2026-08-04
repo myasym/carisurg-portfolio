@@ -1,7 +1,4 @@
-
-# HCI CO-DESIGN CANVAS
-
-### Human-Computer Interaction Design Space
+# Human-Computer Interaction (HCI) Design Space
 
 ---
 
