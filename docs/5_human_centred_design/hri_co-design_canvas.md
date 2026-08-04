@@ -80,7 +80,7 @@
 
 # ROBOT
 
-## Gigi (Guided Information & Guidance Interface)
+## GIGI (Guided Information & Guidance Interface)
 
 ---
 
@@ -88,7 +88,7 @@
 
 ### Short-Term
 
-Gigi performs:
+GIGI performs:
 
 * Provides patient information access.
 * Allows wristband identification through Bluetooth.
@@ -99,7 +99,7 @@ Gigi performs:
 
 ### Long-Term
 
-Gigi supports:
+GIGI supports:
 
 * Digital inclusion for patients without smartphones.
 * Improved patient communication.
@@ -138,14 +138,14 @@ Gigi supports:
 
 ## User’s Emotional Response
 
-Gigi should create:
+GIGI should create:
 
 * Trust.
 * Calmness.
 * Reassurance.
 * Comfort.
 
-Gigi should avoid:
+GIGI should avoid:
 
 * Pretending to be a healthcare professional.
 * Creating emotional dependency.
@@ -168,7 +168,7 @@ Personalisation should improve accessibility without collecting unnecessary pers
 
 ## Precise Tasks
 
-Gigi performs:
+GIGI performs:
 
 * Patient identification through wristband interaction.
 * Information retrieval.
@@ -176,7 +176,7 @@ Gigi performs:
 * Waiting process explanation.
 * Navigation support.
 
-Gigi does not:
+GIGI does not:
 
 * Diagnose patients.
 * Assign ESI levels independently.
@@ -187,7 +187,7 @@ Gigi does not:
 
 ## Data Collection with Sensors
 
-Gigi uses:
+GIGI uses:
 
 * Bluetooth connection to wristbands.
 * Touch interaction.
@@ -200,7 +200,7 @@ Data received:
 * Approved status information.
 * Educational content requirements.
 
-Gigi does not independently collect unnecessary clinical data.
+GIGI does not independently collect unnecessary clinical data.
 
 ---
 
@@ -208,7 +208,7 @@ Gigi does not independently collect unnecessary clinical data.
 
 **Stationary robot**
 
-Gigi remains in the ED waiting area.
+GIGI remains in the ED waiting area.
 
 Reasons:
 
@@ -221,14 +221,14 @@ Reasons:
 
 ## Environment Manipulation
 
-Gigi can:
+GIGI can:
 
 * Display information.
 * Provide audio communication.
 * Present educational content.
 * Provide visual feedback.
 
-Gigi cannot:
+GIGI cannot:
 
 * Move patients.
 * Perform medical procedures.
@@ -238,7 +238,7 @@ Gigi cannot:
 
 ## Connection to Systems
 
-Gigi connects with:
+GIGI connects with:
 
 * Patient registration system.
 * Bluetooth wristband system.
@@ -247,7 +247,7 @@ Gigi connects with:
 
 Information flow:
 
-**Registration kiosk → Wristband → Gigi/App → Clinical system**
+**Registration kiosk → Wristband → GIGI/App → Clinical system**
 
 ---
 
@@ -272,11 +272,11 @@ Patients may interact with the robot while stressed, confused, or physically unw
 
 ### Problem
 
-Patients may misunderstand Gigi’s capabilities.
+Patients may misunderstand GIGI’s capabilities.
 
 ### Solution
 
-Gigi clearly communicates:
+GIGI clearly communicates:
 
 * It provides information only.
 * It does not diagnose.
@@ -288,7 +288,7 @@ Gigi clearly communicates:
 
 ### Problem
 
-Patients may form strong emotional attachment to Gigi.
+Patients may form strong emotional attachment to GIGI.
 
 ### Solution
 
@@ -302,7 +302,7 @@ Patients may form strong emotional attachment to Gigi.
 
 ### Problem
 
-Gigi accesses patient-related information.
+GIGI accesses patient-related information.
 
 ### Solution
 
@@ -321,7 +321,7 @@ Technology may exclude patients with limited digital access.
 
 ### Solution
 
-* Physical Gigi access.
+* Physical GIGI access.
 * App alternative.
 * Accessible interface design.
 * Multiple communication methods.
@@ -396,7 +396,7 @@ Users may misuse or abuse the robot.
 
 ## Robot’s Role
 
-Gigi is:
+GIGI is:
 
 * A guide.
 * A helper.
@@ -406,7 +406,7 @@ Gigi is:
 
 ## Personality
 
-Gigi is:
+GIGI is:
 
 * Friendly.
 * Calm.
@@ -435,7 +435,7 @@ Gigi is:
 
 ## Connection to Systems
 
-Gigi connects to:
+GIGI connects to:
 
 * Patient application.
 * Wristband system.
@@ -586,7 +586,7 @@ The patient chooses when to interact.
 
 Common interaction:
 
-Patient taps wristband → Gigi identifies patient → Displays updates → Answers questions.
+Patient taps wristband → GIGI identifies patient → Displays updates → Answers questions.
 
 ---
 
@@ -598,7 +598,7 @@ Patient taps wristband → Gigi identifies patient → Displays updates → Answ
 
 ## Robot Name
 
-**Gigi**
+**GIGI**
 
 Meaning:
 
@@ -674,7 +674,7 @@ Patients.
 
 ## Robot
 
-Gigi.
+GIGI.
 
 ## External Systems
 
@@ -685,7 +685,7 @@ Gigi.
 
 ## Data Flow
 
-Patient → Wristband → Gigi/App → Hospital system → Staff
+Patient → Wristband → GIGI/App → Hospital system → Staff
 
 ---
 
@@ -699,7 +699,7 @@ Patient → Wristband → Gigi/App → Hospital system → Staff
 * Registers.
 * Receives wristband.
 
-### Gigi
+### GIGI
 
 * Available in waiting area.
 
@@ -713,7 +713,7 @@ Patient → Wristband → Gigi/App → Hospital system → Staff
 * Receives explanations.
 * Learns about care process.
 
-### Gigi
+### GIGI
 
 * Identifies patient.
 * Displays information.
@@ -727,7 +727,7 @@ Patient → Wristband → Gigi/App → Hospital system → Staff
 
 * Receives next-step instructions.
 
-### Gigi
+### GIGI
 
 * Ends interaction.
 * Maintains system readiness for next patient.
