@@ -1,3 +1,8 @@
+HRI CO-DESIGN CANVAS
+
+### Human-Robot Interaction (HRI) Design Space
+
+---
 # Canvas #01/10: PROBLEM SPACE
 
 ## SOCIAL ROBOT CO-DESIGN CANVASES
