@@ -4,7 +4,7 @@
 
 # Part A. Deployment Vision
 
-The CariSurg MedTech Pathways system provides continuous patient support, monitoring, and triage assistance across multiple patient entry pathways. All pathways connect into one continuous re-triage pipeline that remains active until the patient leaves the department.
+The system provides continuous patient support, monitoring, and triage assistance across multiple patient entry pathways. All pathways connect into one continuous re-triage pipeline that remains active until the patient leaves the department.
 
 Mercer General currently operates using paper-based processes and does not have an electronic health record system. Sister Alleyne identified digitisation of the existing triage form as a necessary first step before predictive systems can be introduced.
 
@@ -461,4 +461,4 @@ The following require confirmation before development:
 | Assisted patient           | Staff/caregiver support              |
 | Repeat visitor             | Digital record support after Phase 0 |
 
-The final CariSurg MedTech Pathways system creates a connected ED experience that combines digital intake, wearable monitoring, patient communication, and social interaction while maintaining accessibility, sustainability, and human clinical oversight.
+The final system creates a connected ED experience that combines digital intake, wearable monitoring, patient communication, and social interaction while maintaining accessibility, sustainability, and human clinical oversight.
