@@ -1,7 +1,7 @@
 # Human-Robot Interaction (HRI) Design Space
 
 ---
-# Canvas #01/10: PROBLEM SPACE
+# Canvas #01: PROBLEM SPACE
 
 ## SOCIAL ROBOT CO-DESIGN CANVASES
 
@@ -254,7 +254,7 @@ Information flow:
 
 ---
 
-# Canvas #02/10: ETHICAL CONSIDERATIONS
+# Canvas #02: ETHICAL CONSIDERATIONS
 
 ## Physical Safety
 
@@ -345,7 +345,7 @@ Users may misuse or abuse the robot.
 
 ---
 
-# Canvas #03/10: DESIGN GUIDELINES
+# Canvas #03: DESIGN GUIDELINES
 
 ## Environment Guidelines
 
@@ -383,7 +383,7 @@ Users may misuse or abuse the robot.
 
 ---
 
-# Canvas #04/10: ROBOT DESIGN MVP
+# Canvas #04: ROBOT DESIGN MVP
 
 ## Where and When
 
@@ -447,7 +447,7 @@ GIGI connects to:
 
 ---
 
-# Canvas #05/10: ENVIRONMENT
+# Canvas #05: ENVIRONMENT
 
 ## User(s)
 
@@ -514,7 +514,7 @@ Recommended:
 
 ---
 
-# Canvas #06/10: FORM
+# Canvas #06: FORM
 
 ## Appearance
 
@@ -557,7 +557,7 @@ Includes:
 
 ---
 
-# Canvas #07/10: INTERACTION
+# Canvas #07: INTERACTION
 
 ## Interaction Modalities
 
@@ -609,7 +609,7 @@ Meaning:
 
 ---
 
-# Canvas #08/10: BEHAVIOUR
+# Canvas #08: BEHAVIOUR
 
 ## Social Behaviours
 
@@ -663,7 +663,7 @@ Moderate:
 
 ---
 
-# Canvas #09/10: SERVICE ECOSYSTEM
+# Canvas #09: SERVICE ECOSYSTEM
 
 ## Primary Users
 
@@ -692,7 +692,7 @@ Patient → Wristband → GIGI/App → Hospital system → Staff
 
 ---
 
-# Canvas #10/10: EXPERIENCE FLOW
+# Canvas #10: EXPERIENCE FLOW
 
 ## Before
 
