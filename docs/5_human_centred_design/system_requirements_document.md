@@ -1,7 +1,5 @@
 # Deployment System Requirements Document
 
-**CariSurg MedTech Pathways — Mya Symister**
-
 ---
 
 # Part A. Deployment Vision
